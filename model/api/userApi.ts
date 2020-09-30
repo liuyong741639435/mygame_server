@@ -22,8 +22,17 @@ const userRegisterApi =({uname,upwd}) =>{
     const uid = Math.floor(Math.random()*1000000)+100000
 
     pool.query(sql,[uid,uname,upwd],async function(err,result){
+<<<<<<< HEAD
       if(err) return reject(err)
       else resolve()
+=======
+      if(err) reject(err)
+      if(result.affectedRows==1) {
+        resolve()
+      } else {
+        reject(err)
+      }
+>>>>>>> 24e4bb7040848e5b0f5fdb8fa1fe3fdc3d4258f5
     })
   })
 }
